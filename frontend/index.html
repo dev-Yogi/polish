@@ -1,0 +1,61 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>Hello!</h1>
+
+        <table id="brands">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Brand</th>
+                    <th>Vegan</th>
+                    <th>Cruelty-Free</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function getAllBrands() {
+                axios.get('http://localhost:8080/api/brands')
+                .then(
+                    function (response) {
+                        console.log('getAllBrands() response =', response)
+                        const tbody = document.querySelector('#brands tbody')
+
+                        //loop through all elements in response
+                        response.data.forEach((element) => {
+                            console.log('getAllBrands() element', element);
+                            //(id: 1, brand: OPI, etc etc)
+
+                            //create some html
+                            let row = `
+                            <tr>
+                                <td>${element.id}</td>
+                                <td>${element.name}</td>
+                                <td>${element.vegan}</td>
+                                <td>${element.crueltyFree}</td>
+                                <td>${element.website}</td>
+                            </tr>
+                            `;
+
+                            //insert HTML into tbody
+                            tbody.insertAdjacentHTML('beforeend', row)
+                        })
+                    }
+                )
+                .catch(
+                    function(err) {
+                        console.log(err);
+                    }
+                )
+            }
+            getAllBrands();
+        </script>
+    </body>
+</html>
