@@ -30,7 +30,7 @@ public class BrandController {
         return brand.get();
     }
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "/brands/")
     public String createBrand(@RequestBody Brand brand) {
         brandRepository.save(brand);
         return "Saved";
@@ -41,8 +41,8 @@ public class BrandController {
         Optional<Brand> optionalBrand = brandRepository.findById(id);
         Brand brand = optionalBrand.get();
         brand.setName(brandDetails.getName());
-        //brand.setVegan(brandDetails.getVegan());
-        //brand.setCrueltyFree(brandDetails.getCrueltyFree());
+        brand.setVegan(brandDetails.isVegan());
+        brand.setCrueltyFree(brandDetails.isCrueltyFree());
         brand.setWebsite(brandDetails.getWebsite());
 
         brandRepository.save(brandDetails);

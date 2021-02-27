@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/polishes")
+@RequestMapping(path = "/api")
 public class PolishController {
 
     @Autowired
     private PolishRepository polishRepository;
 
-    @GetMapping(path = "")
+    @GetMapping(path = "/polishes")
     public Iterable<Polish> getAllPolishes() {
         return polishRepository.findAll();
     }
@@ -30,7 +30,7 @@ public class PolishController {
         return polish.get();
     }
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "/polishes/")
     public String createPolish(@RequestBody Polish polish) {
         polishRepository.save(polish);
         return "Saved";
