@@ -30,6 +30,8 @@ public class Polish {
     private String finish2;
     @Column(name = "finish3")
     private String finish3;
+    @Column(name = "limited_edition")
+    private boolean limitedEdition;
 
     public int getId() {
         return id;
@@ -101,6 +103,14 @@ public class Polish {
 
     public void setFinish3(String finish3) {
         this.finish3 = finish3;
+    }
+
+    public boolean isLimitedEdition() {
+        return limitedEdition;
+    }
+
+    public void setLimitedEdition(boolean limitedEdition) {
+        this.limitedEdition = limitedEdition;
     }
 
     

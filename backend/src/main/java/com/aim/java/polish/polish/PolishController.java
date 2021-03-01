@@ -48,6 +48,7 @@ public class PolishController {
         polish.setFinish1(polishDetails.getFinish1());
         polish.setFinish2(polishDetails.getFinish2());
         polish.setFinish3(polishDetails.getFinish3());
+        polish.setLimitedEdition(polishDetails.isLimitedEdition());
         
         polishRepository.save(polishDetails);
         return "Updated";
