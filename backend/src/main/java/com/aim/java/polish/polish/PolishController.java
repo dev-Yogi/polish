@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/polishes", method = RequestMethod.GET)
 public class PolishController {
 
     @Autowired
     private PolishRepository polishRepository;
 
-    @GetMapping(path = "/polishes")
+    @GetMapping(path = "")
     public Iterable<Polish> getAllPolishes() {
         return polishRepository.findAll();
     }

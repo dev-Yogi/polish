@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/brands")
 public class BrandController {
 
     @Autowired
     private BrandRepository brandRepository;
 
-    @GetMapping(path = "/brands")
+    @GetMapping(path = "")
     public Iterable<Brand> getAllBrands() {
         return brandRepository.findAll();
     }
@@ -54,5 +54,5 @@ public class BrandController {
         brandRepository.deleteById(id);
         return "Deleted";
     }
-    
+
 }
