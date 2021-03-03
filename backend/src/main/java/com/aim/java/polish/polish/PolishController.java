@@ -23,7 +23,7 @@ public class PolishController {
     public Iterable<Polish> getAllPolishes() {
         return polishRepository.findAll();
     }
-    
+
     @GetMapping(path = "/{id}")
     public Polish getPolish(@PathVariable(value = "id") Integer id) {
         Optional<Polish> polish = polishRepository.findById(id);
@@ -49,7 +49,7 @@ public class PolishController {
         polish.setFinish2(polishDetails.getFinish2());
         polish.setFinish3(polishDetails.getFinish3());
         polish.setLimitedEdition(polishDetails.isLimitedEdition());
-        
+
         polishRepository.save(polishDetails);
         return "Updated";
     }
