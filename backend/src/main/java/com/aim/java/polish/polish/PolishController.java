@@ -31,7 +31,7 @@ public class PolishController {
         return polish.get();
     }
 
-    @PostMapping(path = "/polishes/")
+    @PostMapping(path = "/")
     public String createPolish(@RequestBody Polish polish) {
         polishRepository.save(polish);
         return "Saved";

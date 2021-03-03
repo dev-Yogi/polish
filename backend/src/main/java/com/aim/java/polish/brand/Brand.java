@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "brand_id")
+    @Column(name = "brand_id", unique = true, nullable = false)
     private int id;
     @Column(name = "brand_name")
     private String name;
@@ -63,8 +63,4 @@ public class Brand {
         this.website = website;
     }
 
-
-
-
-    
 }

@@ -30,7 +30,7 @@ public class BrandController {
         return brand.get();
     }
 
-    @PostMapping(path = "/brands/")
+    @PostMapping(path = "/")
     public String createBrand(@RequestBody Brand brand) {
         brandRepository.save(brand);
         return "Saved";
